@@ -4,7 +4,7 @@ A Boids flocking simulator that runs directly inside your Neovim buffers using v
 
 It utilizes uniform grid spatial partitioning to handle the n-body kinematics.
 
-https://github.com/5hashN/flock.nvim/raw/main/assets/demo.mp4
+https://github.com/user-attachments/assets/6e033994-4d54-4af3-89fb-0f87da803db8
 
 ## Installation
 
