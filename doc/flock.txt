@@ -1,0 +1,62 @@
+*flock.txt* Boids flocking simulator for Neovim
+
+==============================================================================
+1. Overview                                                *flock-overview*
+
+flock.nvim is a lightweight Boids flocking simulator that runs directly
+inside your Neovim buffers using virtual text. The boids swarm around your
+code and are attracted to your cursor.
+
+It utilizes a uniform grid spatial partition for efficient O(N) neighborhood
+lookups, allowing for smooth performance without blocking the UI thread.
+
+==============================================================================
+2. Installation                                         *flock-installation*
+
+Using lazy.nvim:
+>lua
+    {
+        "5hashN/flock.nvim",
+        opts = {
+            num_boids = 45,
+            timer_interval = 50,
+            visual_char = ">",
+        }
+    }
+<
+
+==============================================================================
+3. Commands                                                 *flock-commands*
+
+:FlockStart                                                 *:FlockStart*
+    Starts the flocking simulation in the current window.
+
+:FlockStop                                                   *:FlockStop*
+    Stops the simulation and clears all virtual text.
+
+==============================================================================
+4. Configuration                                       *flock-configuration*
+
+You can customize the physics and visuals by passing an opts table to the
+setup function. Here are the default values:
+
+>lua
+    require("flock").setup({
+        num_boids = 40,
+        dt = 0.1,
+        timer_interval = 50,
+        visual_char = ">",
+        hl_group = "String",
+        weights = {
+            separation = 4.0,
+            alignment = 1.0,
+            cohesion = 0.8,
+            cursor = 0.6
+        },
+        perception_radius = 12.0,
+        max_speed = 2.5
+    })
+<
+
+==============================================================================
+ vim:tw=78:ts=8:ft=help:norl:
